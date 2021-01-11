@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "Práctica 2: Vacuum cleaner"
-date:   2020-12-12 20:45:14 +01
+date:   2020-11-11 20:45:14 +01
 categories: jekyll update
 ---
 
