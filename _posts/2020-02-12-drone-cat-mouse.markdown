@@ -8,8 +8,9 @@ categories: jekyll update
 Practica 5 de  Robotica Movil [JdeRobot Academy.](http://jderobot.github.io/RoboticsAcademy/exercises/Drones/drone_cat_mouse)
 
 ![Foto1](/assets/image.png)
+Dron gato azul, dron raton rojo
 
-Descripcion del ejercicio: Tenemos que controlar un dron para que persiga a otro, el movimiento de este otro es desconocido y muy rapido.
+Descripcion del ejercicio: Tenemos que controlar un dron para que persiga a otro, el movimiento de este otro es desconocido y muy rápido.
 
 El problema lo dividí en los siguientes subproblemas:
 	1. Filtro de color para conocer el punto central del dron raton en la camara
@@ -24,13 +25,17 @@ El hecho de no disponer de un sensor laser para la distancia complicó la manera
 
 El control PD fue la parte más complicada del ejercicio. Al tener que controlar tres grados de libertad a la vez, el cambio en la constante P o D de un eje afectaba a los demás. Inicialmente con el control P funcionaba de manera muy brusca. Hize un plan mas sencillo para el raton para probar los primeros intentos
 
+Formula control P: u = P * error
+
 [link](https://youtu.be/52wa69ViV9I)
 
-Despues ajustando la constante P, añadiendo un margen para el error y finalmente el componente derivativo del control conseguí que el dron gato funcionara lo suficientemente suave como para seguir al raton.
+Despues ajustando la constante P, añadiendo un margen para el error y finalmente el componente derivativo del control conseguí que el dron gato funcionara lo suficientemente suave como para seguir al dron raton.
 
-Aun asi, como se puede observar al cabecear el gato para moverse hacia atras o adelante, se pierde facilmente al raton de la imagen. Por lo que un modo de busqueda de raton era necesario.
+Formula control PD: u = P * error + D * error_incremental
 
-Este modo se hizo moviendo el dron gato hacia atras y esperando a ver al dron raton, era necesario una busqueda muy rapida por lo que el uso de la camara ventral lo descarté por la problematica de cambiar de camaras. Usando una sola camara se consigue que el dron gato rapidamente vuelva a seguir al raton.
+Aun asi, como se puede observar para cabecear el dron gato al moverse hacia atras o adelante se pierde facilmente al raton de la imagen. Por lo que un modo de busqueda de raton era necesario.
+
+Este modo se hizo moviendo el dron gato hacia atras y esperando a ver al dron raton, era necesario una busqueda muy rápida por lo que el uso de la camara ventral lo descarté por la problematica de cambiar de camaras. Usando una sola camara se consigue que el dron gato rapidamente vuelva a seguir al raton.
 
 Finalmente el dron gato puede seguir al dron raton a cierta distancia, sin chocarse con este y sin perderlo. Aún asi los movimientos a tanta velocidad son un poco bruscos.
 
